@@ -1,8 +1,6 @@
 const { model, Schema } = require('mongoose');
 
-const { handleMongooseError } = require('../middlewares');
-
-const Joi = require('joi');
+const { handleMongooseError } = require('../help');
 
 const contactSchema = new Schema(
   {
@@ -20,6 +18,10 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    },
   },
   { versionKey: false, timestamps: true }
 );
@@ -28,15 +30,4 @@ contactSchema.post('save', handleMongooseError);
 
 const Contact = model('contact', contactSchema);
 
-const contactAddSchema = Joi.object({
-  name: Joi.string().required(),
-  email: Joi.string().required(),
-  phone: Joi.string().required(),
-  favorite: Joi.boolean(),
-});
-
-const contactUpdateFavoriteSchema = Joi.object({
-  favorite: Joi.boolean().required(),
-});
-
-module.exports = { Contact, contactAddSchema, contactUpdateFavoriteSchema };
+module.exports = { Contact };

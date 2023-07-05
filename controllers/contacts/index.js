@@ -1,22 +1,22 @@
 const getAllContacts = require('./getAllContacts');
 
-const getContactById = require('./getContactById');
+const getContactID = require('./getContactID');
 
 const addContact = require('./addContact');
 
 const updateStatusContact = require('./updateStatusContact');
 
-const updateContactById = require('./updateContactById');
+const updateContactID = require('./updateContactID');
 
-const deleteContactById = require('./deleteContactById');
+const deleteContactID = require('./deleteContactID');
 
 const { ctrlWrapper } = require('../../dec');
 
 module.exports = {
   getAllContacts: ctrlWrapper(getAllContacts),
-  getContactById: ctrlWrapper(getContactById),
+  getContactID: ctrlWrapper(getContactID),
   addContact: ctrlWrapper(addContact),
-  deleteContactById: ctrlWrapper(deleteContactById),
-  updateContactById: ctrlWrapper(updateContactById),
+  deleteContactID: ctrlWrapper(deleteContactID),
+  updateContactID: ctrlWrapper(updateContactID),
   updateStatusContact: ctrlWrapper(updateStatusContact),
 };
