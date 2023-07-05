@@ -2,4 +2,6 @@ const handleMongooseError = require('./handleMongooseError');
 
 const HttpError = require('./HttpError');
 
-module.exports = { HttpError, handleMongooseError };
+const handleImageByJimp = require('./jimp');
+
+module.exports = { HttpError, handleMongooseError, handleImageByJimp };

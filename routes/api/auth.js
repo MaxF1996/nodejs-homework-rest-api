@@ -8,7 +8,7 @@ const { authSchema, subscriptionSchema } = require('../../schemas');
 
 const userAuth = require('../../controllers/auth');
 
-const { authenticate } = require('../../middlewares');
+const { authenticate, upload } = require('../../middlewares');
 
 router.post('/register', validateBody(authSchema), userAuth.userRegister);
 
@@ -17,6 +17,8 @@ router.post('/login', validateBody(authSchema), userAuth.userLogin);
 router.get('/current', authenticate, userAuth.getCurrent);
 
 router.post('/logout', authenticate, userAuth.logout);
+
+router.patch('/avatars', authenticate, upload.single('avatar'), userAuth.uploadAvatar);
 
 router.patch('/', authenticate, validateBody(subscriptionSchema), userAuth.updateSubscription);
 

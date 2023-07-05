@@ -8,6 +8,8 @@ const getCurrent = require('./getCurrent');
 
 const updateSubscription = require('./updateSubscription');
 
+const uploadAvatar = require('./uploadAvatar');
+
 const { ctrlWrapper } = require('../../dec');
 
 module.exports = {
@@ -16,4 +18,5 @@ module.exports = {
   logout: ctrlWrapper(logout),
   getCurrent: ctrlWrapper(getCurrent),
   updateSubscription: ctrlWrapper(updateSubscription),
+  uploadAvatar: ctrlWrapper(uploadAvatar),
 };
